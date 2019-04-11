@@ -1,6 +1,9 @@
 import * as bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import express from 'express';
 import { MainRoute } from './api/routes/main.route';
+
+dotenv.config({ path: '.env' });
 
 export class App {
 	public app: express.Application;

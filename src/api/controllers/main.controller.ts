@@ -1,10 +1,8 @@
 import { Request, Response } from 'express';
+import { logger } from '../../config/logger.config';
 export class MainController {
 	public static async getHealthInfo(req: Request, res: Response) {
-		res
-			.json({
-				status: 'up'
-			})
-			.status(200);
+		logger.info('GET /health called');
+		res.status(200).json({ status: 'up' });
 	}
 }
