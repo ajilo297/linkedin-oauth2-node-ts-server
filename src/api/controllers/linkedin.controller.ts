@@ -49,9 +49,9 @@ export class LinkedinController {
 		let body = '';
 		body += 'grant_type=authorization_code';
 		body += `&code=${authorizationCode}`;
-		body += `&redirect_uri=${process.env.LINKEDIN_CALLBACK_URL}`;
-		body += `&client_id=${process.env.LINKEDIN_CONSUMER_KEY}`;
-		body += `&client_secret=${process.env.LINKEDIN_CONSUMER_SECRET}`;
+		body += `&redirect_uri=${process.env.LINKEDIN_REDIRECT_URI}`;
+		body += `&client_id=${process.env.LINKEDIN_CLIENT_ID}`;
+		body += `&client_secret=${process.env.LINKEDIN_CLIENT_SECRET}`;
 
 		request.post({
 			url: 'https://www.linkedin.com/oauth/v2/accessToken',
