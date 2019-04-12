@@ -5,7 +5,7 @@ import { createLogger, format, Logger, transports } from 'winston';
 const { timestamp, printf, combine, colorize } = format;
 const logFormat = printf((info) => {
 	let formatString = '';
-	formatString += `${info.timestamp}|${getHost()}|${name('sequoia-community-referral')}|`;
+	formatString += `${info.timestamp}|${getHost()}|${name()}|`;
 	formatString += `${process.env.npm_package_version}|${info.level}|${process.pid}|winston|`;
 	formatString += `${info.message.split('\n')[0]}`;
 	return formatString;
