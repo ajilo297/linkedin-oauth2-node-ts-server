@@ -1,3 +1,5 @@
+import uuidv4 from 'uuid/v4';
+
 export class Utils {
 
 	/**
@@ -18,4 +20,11 @@ export class Utils {
 	public static error404(message?: string): object { return this.getJsonErrorMessage('Not Found', 404, message); }
 
 	public static error500(message?: string): object { return this.getJsonErrorMessage('Internal Error', 500, message); }
+
+	/**
+	 * Get unique identifier for users
+	 */
+	public static getUniqueIdentifier(): string {
+		return uuidv4();
+	}
 }
