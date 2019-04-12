@@ -9,7 +9,6 @@ export class App {
 	public app: express.Application;
 	public route: MainRoute;
 
-
 	constructor() {
 		this.app = express();
 		this.configureServer();

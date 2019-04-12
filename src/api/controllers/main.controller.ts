@@ -15,17 +15,19 @@ export class MainController {
 		const adminKey = req.headers.admin_key;
 
 		if (_.isUndefined(adminKey) || _.isEmpty(adminKey)) {
+			logger.info(`GET /shutdown called without admin key`);
 			return res.status(400).send(Utils.error400('Admin Key is required'));
 		}
 
 		const key = process.env.ADMIN_KEY;
 		if (adminKey !== key) {
+			logger.info(`GET /shutdown called with invalid admin key`);
 			return res.status(401).send(Utils.getJsonErrorMessage('Unauthorized', 401, 'Incorrect Admin Key'));
 		}
 
-		res.sendStatus(200);
 		logger.info('GET /shutdown called');
 		logger.info('Shutting down...');
+		res.status(200).send({ message: 'Server shutdown initiated' });
 		process.exit(0);
 	}
 }
