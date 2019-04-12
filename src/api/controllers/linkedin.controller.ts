@@ -17,7 +17,7 @@ export class LinkedinController {
 
 		logger.info(`Linkedin callback for state ${state}`);
 
-		this.makePostRequestForAccessToken(code);
+		LinkedinController.makePostRequestForAccessToken(code);
 		res.sendStatus(200);
 	}
 
