@@ -16,6 +16,9 @@ export class LinkedinController {
 		}
 
 		logger.info(`Linkedin callback for state ${state}`);
+
+		this.makePostRequestForAccessToken(code);
+		res.sendStatus(200);
 	}
 
 	public static getLinkedinUrl(req: Request, res: Response) {
@@ -76,7 +79,6 @@ export class LinkedinController {
 
 	private static fetchEmailId(accessToken: string) {
 		logger.info(`ACCESS TOKEN received`);
-		console.log(accessToken);
 		const linkedinApiUrl = 'https://api.linkedin.com';
 		const url = `${linkedinApiUrl}/v2/emailAddress?q=members&projection=(elements*(handle~))`;
 
