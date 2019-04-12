@@ -72,7 +72,7 @@ export class LinkedinController {
 				LinkedinController.fetchEmailId(accessToken);
 			} else {
 				logger.error('Access token not received');
-				console.log(`ERROR2: ${error}`);
+				console.log(`ERROR2: ${JSON.stringify(JSON.parse(response.body))}`);
 			}
 		}
 	}
